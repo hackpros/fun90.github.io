@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fun90&#39;s blog">
+  <meta name="keyword" content="java, 软件, mac">
+  <title>
+    
+      那些年，踩过的JavaScript之坑 | Fun90
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+</head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Fun90</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">首页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>那些年，踩过的JavaScript之坑</h2>
+  <p class="post-date">2014-01-10</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body">
+  <article class="post-article">
+    <section class="markdown-content"><p>你编，或者不编程，项目就在那里，还未完成。你调，或者不调试，BUG就在那里，早晚得改。你踩，或者不踩，坑都在那里，等下一个受害者。</p>
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><h3 id="未使用var关键字定义的变量都是全局变量"><a href="#未使用var关键字定义的变量都是全局变量" class="headerlink" title="未使用var关键字定义的变量都是全局变量"></a>未使用var关键字定义的变量都是全局变量</h3><p>在JavaScript中定义变量时漏掉var并不会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    value = <span class="number">100</span>; <span class="comment">// value前没有var关键字，则声明了全局变量value并赋了值</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(value); <span class="comment">// 输出 100</span></div></pre></td></tr></table></figure>
+<a id="more"></a> 
+<h3 id="没有块作用域，只有函数作用域"><a href="#没有块作用域，只有函数作用域" class="headerlink" title="没有块作用域，只有函数作用域"></a>没有块作用域，只有函数作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">        <span class="keyword">var</span> value = <span class="string">"hello world"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(i); <span class="comment">// 输出 10</span></div><div class="line">    <span class="built_in">console</span>.log(value); <span class="comment">// 输出 hello world</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(value); <span class="comment">// ReferenceError: value is not defined</span></div></pre></td></tr></table></figure>
+<p>上面的代码中可以看出，for循环外依然能访问变量i和value，但函数foo外面则无法访问。</p>
+<p>如何优雅地绕过此坑：</p>
+<ol>
+<li>在函数体的顶部声明可能用到的变量 </li>
+<li>函数体内不要使用同一名称命名不同意义的变量</li>
+</ol>
+<h3 id="变量的优先级"><a href="#变量的优先级" class="headerlink" title="变量的优先级"></a>变量的优先级</h3><p>下面的代码会让人觉得“匪夷所思”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(x); <span class="comment">//输出 undefined，而不是1</span></div><div class="line">    <span class="keyword">var</span> x = <span class="number">100</span>;</div><div class="line">    <span class="built_in">console</span>.log(x); <span class="comment">//输出 100</span></div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure></p>
+<p>WHY?</p>
+<ol>
+<li><p>JavaScript 是解释型语言，但它并不是直接逐步执行的，JavaScript解析过程分为先后两个阶段，一个是预处理阶段，另外一个就是执行阶段。在预处理阶段 JavaScript解释器将完成把JavaScript脚本代码转换到字节码，然后第二阶段JavaScript解释器借助执行环境把字节码生成机械 码，并顺序执行。</p>
+</li>
+<li><p>JavaScript的变量作用域是基于其特有的作用域链的，使用变量时JavaScript是按从下往上的顺序依次查找变量，没有找到就进入上一级直至全局变量。基于这一规则，函数体内部局部变量的优先级比同名的全局变量高。另外，函数中声明的变量在函数体内都可以使用，并可以重新赋值。</p>
+</li>
+</ol>
+<p>因此，上面的代码同于如下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> x;</div><div class="line">    <span class="built_in">console</span>.log(x); <span class="comment">//输出 undefined，而不是1</span></div><div class="line">    x = <span class="number">100</span>;</div><div class="line">    <span class="built_in">console</span>.log(x); <span class="comment">//输出 100</span></div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure></p>
+<h3 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h3><p>在函数执行时，this 总是指向调用该函数的对象。要判断 this 的指向，其实就是判断 this 所在的函数属于谁。</p>
+<p>在《javaScript语言精粹》这本书中，把 this 出现的场景分为四类，简单的说就是：</p>
+<ol>
+<li>有对象就指向调用对象</li>
+<li>没调用对象就指向全局对象</li>
+<li>用new构造就指向新对象</li>
+<li>通过 apply 或 call 或 bind 来改变 this 的所指。</li>
+</ol>
+<p>看下面的例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObject = &#123;</div><div class="line">    <span class="attr">value</span>: <span class="number">100</span>,</div><div class="line">    <span class="attr">getValue</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// 没调用对象this指向全局对象</span></div><div class="line">            <span class="comment">//console.log(this.value); // 输出 undefined</span></div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        foo();</div><div class="line"></div><div class="line">        <span class="comment">// 通过 apply 或 call 或 bind 来改变 this 的所指</span></div><div class="line">        foo.apply(myObject); <span class="comment">// 输出 myObject</span></div><div class="line">        foo.call(myObject); <span class="comment">// 输出 myObject</span></div><div class="line">        <span class="keyword">var</span> newFoo = foo.bind(myObject);</div><div class="line">        newFoo(); <span class="comment">// 输出 myObject</span></div><div class="line"></div><div class="line">        <span class="keyword">var</span> SomeClass = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = <span class="number">200</span>; <span class="comment">// 用new构造this指向新对象</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> myCreate = <span class="keyword">new</span> SomeClass();</div><div class="line">        <span class="built_in">console</span>.log(myCreate.value); <span class="comment">// 输出200</span></div><div class="line"></div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this指向myObject</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(myObject.getValue()); <span class="comment">// 输出 100</span></div></pre></td></tr></table></figure></p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包是指有权限访问另一个函数作用域的变量的函数，创建闭包的常见方式就是在一个函数内部创建另一个函数。<strong>只要存在调用内部函数的可能，JavaScript就需要保留被引用的函数，而且JavaScript运行时需要跟踪引用这个内部函数的所有变量，直到最后一个变量废弃，JavaScript的垃圾收集器才能释放相应的内存空间。</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>0<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>3<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>);</div><div class="line"><span class="keyword">var</span> n = elements.length;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">    elements[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"This is element #"</span> + i);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>乍一看，上面的代码应该是点击不同按钮会输出不同的内容，但发现点击四个button都是输出“This is element # 4”，很奇怪，为什么？</p>
+<p>理一下执行过程：</p>
+<p>当i的值为4的时，for循环执行完毕，但是因为每个button的onclick方法这时候为内部函数，所以i被闭包引用，内存不能被销毁，i的值会一直保持4，直到程序改变它或者所有的onclick函数销毁（主动把函数赋为null或者页面卸载）时才会被回收。这样每次我们点击button的时候，onclick函数会查找i的值（作用域链是引用方式），一查等于4，然后就输出了“This is element # 4”。</p>
+<p>解决：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>);</div><div class="line"><span class="keyword">var</span> n = elements.length;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">        elements[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"This is element #"</span> + n);</div><div class="line">        &#125;</div><div class="line">    &#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第二种方式是使用了一个立即执行的函数又创建了一层闭包，函数声明放在括号内就变成了表达式，后面再加上括号括号就是调用了，这时候把i当参数传入，函数立即执行，num保存每次i的值(依次是0、1、2、3)，我们点击button的时候，就会得到我们想要的效果。</p>
+<h2 id="行尾的分号"><a href="#行尾的分号" class="headerlink" title="行尾的分号"></a>行尾的分号</h2><p>Javascript代码中分号是可选的，似乎很方便，但是很不幸的是经常会遇到因为漏掉了分号出现的错误，而解释器有时对这种错误定位不明确，必须由我们自己追溯并尝试去猜测因为哪些分号漏写导致的问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">key</span>: <span class="string">"value"</span></div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(foo1()); <span class="comment">// 输出 &#123; key: 'value' &#125;</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> </div><div class="line">	&#123;</div><div class="line">        <span class="attr">a</span>: <span class="string">"hello"</span></div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(foo2()); <span class="comment">// 输出 undefined</span></div></pre></td></tr></table></figure>
+<p>foo2中分号自动加到了return语句后面，所以得到了“奇怪”的结果。</p>
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><h3 id="双等号"><a href="#双等号" class="headerlink" title="双等号"></a>双等号</h3><p>==操作符比较时会进行类型的强制转换，它可以比较两个不同类型的对象，在执行比较之前它将会尝试把这两个对象转换成同一个类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">""</span> == <span class="number">0</span>);   <span class="comment">//true - 空字符串会被强制转换为数字0.  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="number">0</span> == <span class="string">"0"</span>);  <span class="comment">//true - 数字0会被强制转换成字符串"0"  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">""</span> == <span class="string">"0"</span>); <span class="comment">//false - 两操作数都是字符串所以不执行强制转换</span></div></pre></td></tr></table></figure>
+<p>如果使用三重等号（===），上面的三个比较都将返回false。</p>
+<h3 id="加减号"><a href="#加减号" class="headerlink" title="加减号"></a>加减号</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> (<span class="number">1</span> + <span class="string">"1"</span>), <span class="number">1</span> + <span class="string">"1"</span>); <span class="comment">// string 11 +号的操作数是数字与字符串，执行连接操作</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> (<span class="string">"1"</span> - <span class="number">1</span>), <span class="string">"1"</span> - <span class="number">1</span>); <span class="comment">// number 0 相减操作会尝试将操作数转换成数字类型</span></div></pre></td></tr></table></figure>
+<h2 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h2><h3 id="浮点数运算"><a href="#浮点数运算" class="headerlink" title="浮点数运算"></a>浮点数运算</h3><p>看一个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span>); <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
+<p>惊天BUG？</p>
+<p>JavaScript只有一种数字类型Number，没有Integer和Float，Number是IEEE标准中双精度浮点运算(64位)类型。 浮点数的精度问题不是JavaScript特有的，因为有些小数以二进制表示位数是无穷的，这就意味着JavaScript中浮点数运算会有无法避免的精度丢失。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span>); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span>); <span class="comment">// 0.30000000000000004，精度丢失</span></div><div class="line"><span class="built_in">console</span>.log(<span class="number">0.0</span> === <span class="number">0</span>); <span class="comment">// true，integer和float没有区别</span></div></pre></td></tr></table></figure></p>
+<p>解决：<br>在判断浮点运算结果前对计算结果进行精度缩小，因为在精度缩小的过程总会自动四舍五入:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = (<span class="number">0.1</span> + <span class="number">0.2</span>).toFixed(<span class="number">1</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> result, result); <span class="comment">// string 0.3，注意toFixed后的类型为string</span></div></pre></td></tr></table></figure></p>
+<h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><p>NaN的类型是Number，NaN和任何东西比较都是false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">NaN</span>); <span class="comment">// number</span></div><div class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> === <span class="literal">NaN</span>); <span class="comment">// fasle</span></div></pre></td></tr></table></figure></p>
+<p>还有很多坑没记上来，还有很多坑未踩过去</p>
+<p>END！！！</p>
+</section>
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Web" >
+    <span class="tag-code">Web</span>
+  </a>
+
+  <a href="/tags#JavaScript" >
+    <span class="tag-code">JavaScript</span>
+  </a>
+
+      </div>
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+      <div id="comments"></div>
+    
+  </article>
+</main>
+
+<script>
+  (function () {
+    var url = 'http://fun90.github.io/2014/01/10/javascript-pit/';
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png') 
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      var imageW = $(this).width()
+      var imageH = $(this).height()
+      
+      var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+      zoom = zoom < 1 ? 1 : zoom
+      zoom = zoom > 2 ? 2 : zoom
+      var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+      $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+      $('.image-view-wrap').addClass('wrap-active')
+      $('.image-view-wrap img').css({
+        'width': `${imageW}`,
+        'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+      })
+      $('html').css('overflow', 'hidden')
+
+      $('.image-view-wrap').on('click', function() {
+        $(this).remove()
+        $('html').attr('style', '')
+      })
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "fun90";
+    if (gitmentConfig != "undefined") {
+      var gitment = new Gitment({
+        id: "那些年，踩过的JavaScript之坑",
+        owner: "fun90",
+        repo: "fun90.github.io",
+        oauth: {
+          client_id: "3a5391174396dbac6d14",
+          client_secret: "f9d2cf3b9daa6ae81e27ed9bc4ae36e1fb3c10f7"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

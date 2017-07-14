@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fun90&#39;s blog">
+  <meta name="keyword" content="java, 软件, mac">
+  <title>
+    
+      Dubbo异常：forbid consumer | Fun90
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+</head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Fun90</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">首页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Dubbo异常：forbid consumer</h2>
+  <p class="post-date">2016-06-14</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body">
+  <article class="post-article">
+    <section class="markdown-content"><section style="padding: 2rem 4rem;background:#333; text-align:center;"><br><div style="color:#fff;font-size:3.25rem; font-weight:bold;">DUBBO</div><br></section>
+
+<p>使用Dubbo开发过程中，经常会遇到forbid consumer whitelist/blacklist的错误.<br>日志提示当前调用者被禁止访问某个服务，请检查下注册中心访问列表，还有黑名单和白名单。<br>实际情况是我并根本没有对服务做白名单和黑名单机制.<a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.alibaba.dubbo.rpc.RpcException: Forbid consumer 10.159.98.101 access service com.ai.ecs.order.api.OrderService from registry 10.154.73.105:2181 use dubbo version 2.5.3, Please check registry access list (whitelist/blacklist).</div></pre></td></tr></table></figure></p>
+<p>根据异常栈，抛出这个异常的代码在RegistryDirectory的第579行，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;Invoker&lt;T&gt;&gt; doList(Invocation invocation) &#123;</div><div class="line"> <span class="keyword">if</span> (forbidden ) &#123;</div><div class="line">     <span class="keyword">throw</span> <span class="keyword">new</span> RpcException(RpcException.FORBIDDEN_EXCEPTION , ” Forbid consumer “ +  NetUtils. getLocalHost() + ” access service “ +        getInterface().getName() + ” from registry “ + getUrl().getAddress() + ” use dubbo version “ + Version.getVersion() + “, <span class="function">Please check registry access <span class="title">list</span> <span class="params">(whitelist/blacklist)</span>.”)</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>forbidden变量默认为false，那么什么时候变成true了呢？<br>看RegistryDirectory的这段代码：</p>
+<pre><code class="java"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">refreshInvoker</span><span class="params">(List&lt;URL&gt; invokerUrls)</span></span>{
+   <span class="keyword">if</span> (invokerUrls != <span class="keyword">null</span> &amp;&amp; invokerUrls.size() == <span class="number">1</span> &amp;&amp; invokerUrls.get(<span class="number">0</span>) != <span class="keyword">null</span> &amp;&amp; Constants.EMPTY_PROTOCOL .equals(invokerUrls.get(<span class="number">0</span>).getProtocol())) {
+            <span class="keyword">this</span>.forbidden = <span class="keyword">true</span>; <span class="comment">// 禁止访问</span>
+            <span class="keyword">this</span>.methodInvokerMap = <span class="keyword">null</span>; <span class="comment">// 置空列表</span>
+            destroyAllInvokers(); <span class="comment">// 关闭所有Invoker</span>
+   }
+</code></pre>
+<p>如果invokerUrls的size为1，并且url的协议头是Constants.EMPTY_PROTOCOL时，则设置forbidden为true，Constants.EMPTY_PROTOCOL的值是empty。</p>
+<p>refreshInvoker方法什么时候被调用呢？当某个服务的provider有变化时就会被调用，例如zookeeper上某个服务的provider目录里的内容发生变化，则zk监听器会被触发，由于provider的数量会发生变化，例如有一个新的provider启动了，有一个provider下线了，所以必须刷新本地的对provider的连接，具体逻辑就在refreshInvoker方法里。</p>
+<p>当zookeeper初次订阅或者订阅的信息有变更时，都会触发toUrlsChanged方法，看看这个方法内部都做了什么，完整代码如下：  </p>
+<pre><code class="java"><span class="function"><span class="keyword">private</span> List&lt;URL&gt; <span class="title">toUrlsWithEmpty</span><span class="params">(URL consumer, String path, List&lt;String&gt; providers)</span> </span>{
+        List&lt;URL&gt; urls = toUrlsWithoutEmpty(consumer, providers);
+        <span class="keyword">if</span> (urls == <span class="keyword">null</span> || urls.isEmpty()) {
+            <span class="keyword">int</span> i = path.lastIndexOf(<span class="string">'/'</span>);
+            String category = i &lt; <span class="number">0</span> ? path : path.substring(i + <span class="number">1</span>);
+            URL empty = consumer.setProtocol(Constants.EMPTY_PROTOCOL).addParameter(Constants.CATEGORY_KEY, category);
+            urls.add(empty);
+        }
+        <span class="keyword">return</span> urls;
+    }
+</code></pre>
+<p>可见如果toUrlsWithoutEmpty的结果是空或者size为0，则强制返回一个protocol为empty的url，看来源头就在这里了。传入的List<string> providers实际上就是最新的服务提供者信息，当某个服务没有任何provider时，providers就变为一个size为0的List了，导致返回一个协议头为empty的url，进而导致forbidden为true，屏蔽了consumer调用。</string></p>
+</section>
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#DUBBO" >
+    <span class="tag-code">DUBBO</span>
+  </a>
+
+      </div>
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+      <div id="comments"></div>
+    
+  </article>
+</main>
+
+<script>
+  (function () {
+    var url = 'http://fun90.github.io/2016/06/14/dubbo-forbid-whitelist/';
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png') 
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      var imageW = $(this).width()
+      var imageH = $(this).height()
+      
+      var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+      zoom = zoom < 1 ? 1 : zoom
+      zoom = zoom > 2 ? 2 : zoom
+      var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+      $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+      $('.image-view-wrap').addClass('wrap-active')
+      $('.image-view-wrap img').css({
+        'width': `${imageW}`,
+        'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+      })
+      $('html').css('overflow', 'hidden')
+
+      $('.image-view-wrap').on('click', function() {
+        $(this).remove()
+        $('html').attr('style', '')
+      })
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "fun90";
+    if (gitmentConfig != "undefined") {
+      var gitment = new Gitment({
+        id: "Dubbo异常：forbid consumer",
+        owner: "fun90",
+        repo: "fun90.github.io",
+        oauth: {
+          client_id: "3a5391174396dbac6d14",
+          client_secret: "f9d2cf3b9daa6ae81e27ed9bc4ae36e1fb3c10f7"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

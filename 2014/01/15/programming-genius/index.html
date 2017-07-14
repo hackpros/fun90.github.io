@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fun90&#39;s blog">
+  <meta name="keyword" content="java, 软件, mac">
+  <title>
+    
+      编程高手的进阶之路 | Fun90
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+</head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Fun90</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">首页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>编程高手的进阶之路</h2>
+  <p class="post-date">2014-01-15</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body">
+  <article class="post-article">
+    <section class="markdown-content"><p>对于外界，Coding是被神化的，似乎需要极高的智商和热情才能从事这个行业。</p>
+<p>IT界聪明的人很多，但极具天赋真正的能称之为天才的人不多，一般人们口中所谓的天才，只不过是比平常人更快的掌握技能、完成工作罢了；只要你找到了正确的方向，并辅以足够的时间，你一样能够踏上成功彼岸。</p>
+<p>工作中解决问题的途径有很多，你能最快想到的方法一部分取决于你的天赋另一部分是靠经验。事实上，大部分人由于平时的工作繁重，不会去思考寻找最优的解决方案，写的代码能刚好满足需求就算完事了。这样无法得到提示你甚至会无形中加重自己的工作量，因为随着年龄的增长，属于你自己的时间会越来越少，你的精力会被生活瓜分。</p>
+<p>如何才能得到最优秀的方案呢？</p>
+<p>首先，我们得知道什么才是最优秀的解决方案，最优解决方案需要你能够走在需求的前面，将当前需求里有的、没有直接提出来的、现在暂时没有但将来可能有的等等，及编程潜规则等各个方方面面都综合考虑，给出最优方案。以一招胜万招。</p>
+<p>你不再被需求牵着走，而是你牵着需求走。注重细节，注意那些当前需求里没有明文给出的细节：代码性能的差异、运行平台（浏览器）的差异、需求的隐性扩展、代码的向后兼容等等。<br><a id="more"></a></p>
+<h2 id="搜索引擎是最好的老师"><a href="#搜索引擎是最好的老师" class="headerlink" title="搜索引擎是最好的老师"></a>搜索引擎是最好的老师</h2><p>打开搜索引擎，穷举所有的搜索结果。自己建立测试环境一一验证这些代码：去揣摩每段代码的意图，去比较每段代码之间的差异。这两条路可以让你快速完成原始积累，当你再面对大多数需求时能够说这些问题我以前做过，那你就水到渠成地晋阶了。</p>
+<p>积累各种能够解决需求的方案，然后再验证每个方案，在这些方案中选择最好的一种。因此该阶段的进阶之路就是”行万里路，看万卷书”，积累各个需求的各个解决方案。</p>
+<p>举个例子：删除一字符串中指定的字符。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"www.baidu.com/?page=1"</span>;</div><div class="line">str=str.replace(<span class="string">'?page=1'</span>,<span class="string">""</span>);</div><div class="line">alert(str);</div><div class="line">str=str.substring(<span class="number">0</span>,str.indexof(<span class="string">"/"</span>));</div><div class="line">alert(str);</div></pre></td></tr></table></figure></p>
+<p>首先不要苛责代码的对错严谨，毕竟每个程序员都有这样的一个过程；其次，这两段代码在这个实例里没有什么大过错，可能会有瑕疵，但能够解决问题（删除指定的字符），这就是这个级别的特征。</p>
+<p>另外举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计算系统当前是星期几</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">""</span>;</div><div class="line"><span class="keyword">var</span> week = <span class="keyword">new</span> date().getday();</div><div class="line"><span class="keyword">if</span> (week == <span class="number">0</span>) &#123;</div><div class="line">        str = <span class="string">"今天是星期日"</span>;</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (week == <span class="number">1</span>) &#123;</div><div class="line">        str = <span class="string">"今天是星期一"</span>;</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (week == <span class="number">2</span>) &#123;</div><div class="line">        str = <span class="string">"今天是星期二"</span>;</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (week == <span class="number">3</span>) &#123;</div><div class="line">        str = <span class="string">"今天是星期三"</span>;</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (week == <span class="number">4</span>) &#123;</div><div class="line">        str = <span class="string">"今天是星期四"</span>;</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (week == <span class="number">5</span>) &#123;</div><div class="line">        str = <span class="string">"今天是星期五"</span>;</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (week == <span class="number">6</span>) &#123;</div><div class="line">        str = <span class="string">"今天是星期六"</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 或者更好一些</span></div><div class="line"><span class="keyword">var</span> str1 = <span class="string">"今天是星期"</span>;</div><div class="line"><span class="keyword">var</span> week = <span class="keyword">new</span> date().getday();</div><div class="line"><span class="keyword">switch</span> (week) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="number">0</span> :</div><div class="line">                str1 += <span class="string">"日"</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">1</span> :</div><div class="line">                str1 += <span class="string">"一"</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">2</span> :</div><div class="line">                str1 += <span class="string">"二"</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">3</span> :</div><div class="line">                str1 += <span class="string">"三"</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">4</span> :</div><div class="line">                str1 += <span class="string">"四"</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">5</span> :</div><div class="line">                str1 += <span class="string">"五"</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="number">6</span> :</div><div class="line">                str1 += <span class="string">"六"</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">&#125;</div><div class="line">alert(str);</div><div class="line">alert(str1);</div></pre></td></tr></table></figure></p>
+<p>能够正确地解决问题。不管你是通过搜索网络，或者通过改造某些成品代码（jquery/dojo/ext/yui）案例，只要能够无错地完成需求。</p>
+<p>“字符串剪裁”代码进化版：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str=&quot;www.baidu.com/?page=1&quot;;</div><div class="line">str=str.replace(/?page/,&quot;&quot;);</div><div class="line">alert(str);</div></pre></td></tr></table></figure></p>
+<p>说明：replace方法的第一个参数虽然可以支持字符串，但最佳的类型是正则表达式；</p>
+<p>“计算系统当前星期几”代码进化版：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> array(<span class="string">"日"</span>, <span class="string">"一"</span>, <span class="string">"二"</span>, <span class="string">"三"</span>, <span class="string">"四"</span>, <span class="string">"五"</span>, <span class="string">"六"</span>);</div><div class="line"><span class="keyword">var</span> week = <span class="keyword">new</span> date().getday();</div><div class="line"><span class="keyword">var</span> str = <span class="string">"今天是星期"</span>+ a[week];</div><div class="line">alert(str);</div></pre></td></tr></table></figure></p>
+<p>说明：不管是从代码量、代码效率、代码优美性、代码思路来说，这个版本的这个日期处理代码都要优秀很多。</p>
+<p>到了进化版，是不是最优秀的解决方案了呢？不一定，很多时候还需要根据实际情况来决定。</p>
+<p>比如“字符串剪裁”的例子 ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"www.baidu.com/?page=1"</span>;</div><div class="line"><span class="comment">// 1、字符串剪裁</span></div><div class="line">str.substring(<span class="number">0</span>, str.indexof(<span class="string">"?page=1"</span>));</div><div class="line"><span class="comment">// 2、正则表达式</span></div><div class="line">str.replace(<span class="regexp">/?page=1/</span>, <span class="string">""</span>);</div><div class="line"><span class="comment">// 3、字符串分拆、合并</span></div><div class="line">str.split(<span class="string">"?page"</span>).join(<span class="string">""</span>);</div></pre></td></tr></table></figure></p>
+<p>1、2、3有什么区别呢？从代码量来说”正则表达式”最优秀；从代码执行效率来说： “字符串剪裁”法最高（chrome中”正则表达式”效率最高），split法最次；从可扩展性上来说，”正则表达式”法最优。具体使用那种方案视具体的需求环境而定。</p>
+<p>再比如“计算系统当前星期几”的例子是不是最优秀的代码呢？请看下面的实现方式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计算系统当前是星期几</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"今天是星期"</span> + <span class="string">"日一二三四五六"</span>.charat(<span class="keyword">new</span> date().getday());</div></pre></td></tr></table></figure></p>
+<p>不要问我为什么，要成为优秀的程序员就是要这么倔强地追去完美。</p>
+<p>通过一段时间的努力，很多人能够达到这个水平，但是，很大一部分人的编程能力也就止步于此。或限于产品的需求单一性，或限于需求开发的时间紧迫性，或限于人的惰性，能够完美地解决当前的需求就够了。</p>
+<p>由于长期处于技术平台期，技术上得不到提高，通常这个级别的工程师会比较燥。技术上小有所成；或追求个人的突破；或追求产品差异性带来的新鲜感；或者只是想换个心情；因此很多此级别的工程师会经常换公司。</p>
+<h2 id="如何走在需求前面？"><a href="#如何走在需求前面？" class="headerlink" title="如何走在需求前面？"></a>如何走在需求前面？</h2><p>“字符串剪裁”的例子已经很完美的解决了当前的问题，但如果有一天原始的url变成了“www.baidu.com/?size=10&amp;page=1”呢？所以当我们拿到“www.baidu.com/?page=1”的需求后，需要考虑很多没有直接提出来的、现在暂时没有但将来可能有的情况，如下面：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"http://www.xxx.com/?pn=0"</span>;   <span class="comment">// 删除指定字符 pn=0</span></div><div class="line"><span class="comment">// 我将这个字符串里所可能想到的各种情况都列举出来</span></div><div class="line"><span class="keyword">var</span> a = [</div><div class="line">         <span class="string">"http://www.xxx.com/vmpn=?pn=0"</span><span class="comment">// pn= 可能出现在 ? 前</span></div><div class="line">        , <span class="string">"http://www.xxx.com/vmpn=?pn="</span><span class="comment">// url里允许pn 值为空</span></div><div class="line">        , <span class="string">"http://www.xxx.com/vmpn=?pn=0&amp;a=1"</span><span class="comment">// url 里可有多个字段</span></div><div class="line">        , <span class="string">"http://www.xxx.com/vmpn=?a=1&amp;pn=0"</span><span class="comment">// 可能排在最后</span></div><div class="line">        , <span class="string">"http://www.xxx.com/vmpn=?a=1&amp;pn=0&amp;pn=1"</span><span class="comment">// 可能有多个 pn 字段</span></div><div class="line">        , <span class="string">"http://www.xxx.com/vmpn=?a=1&amp;pn=0&amp;b=2"</span><span class="comment">// 可能在中间</span></div><div class="line">        , <span class="string">"http://www.xxx.com/vmpn=?a=1&amp;pn=0&amp;pn=1&amp;b=1"</span>  <span class="comment">// 可能在中间成组</span></div><div class="line">        , <span class="string">"http://www.xxx.com/vmpn=?a=1&amp;pn=0&amp;b=1&amp;pn=1"</span>  <span class="comment">// 可能零星分布</span></div><div class="line">];</div><div class="line"><span class="comment">/* 需求的不言之秘：</span></div><div class="line">? 若出现在字符串最尾则要去之</div><div class="line">? &amp; 两个符号不可重叠</div><div class="line">*/</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/((\?)(pn=[^&amp;]*&amp;)+(?!pn=))|(((\?|&amp;)pn=[^&amp;]*)+$)|(&amp;pn=[^&amp;]*)/g</span>;</div><div class="line"> </div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</div><div class="line">    alert(a + <span class="string">"\n"</span> + a.replace(reg, <span class="string">"$2"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里不再追求一招一式，对你来说不是使用什么创新绝招解决需求，而是给出成熟稳重的方案，从根上解决问题。针对某个当前需求你的代码可能不是最优，但是针对此类的需求你的代码却是最优秀的代码。</p>
+<p>到了这一步单单依靠技巧和数量的累积已经没有什么效果了，建议在这个阶段末尾着重关注编程理论：面向对象/过程、代码组织形式、编译、代码规范、其它的框架设计等等<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 在拼接正则表达式字符串时，消除原字符串中特殊字符对正则表达式的干扰</div><div class="line">* @author: fun90</div><div class="line">* @version: 2012/12/16</div><div class="line">* @param               &#123;string&#125;        str     被正则表达式字符串保护编码的字符串</div><div class="line">* @return              &#123;string&#125;                被保护处理过后的字符串</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">escapereg</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> str.replace(<span class="keyword">new</span> regexp(<span class="string">"([.*+?^=!:\x24&#123;&#125;()|[\\]\/\\\\])"</span>, <span class="string">"g"</span>), <span class="string">"\\\x241"</span>);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">/**</span></div><div class="line">* 删除url字符串中指定的 query</div><div class="line">* @author:fun90</div><div class="line">* @version:2012/12/16</div><div class="line">* @param               &#123;string&#125;        url     url字符串</div><div class="line">* @param               &#123;string&#125;        key     被删除的query名</div><div class="line">* @return              &#123;string&#125;                被删除指定 query 后的url字符串</div><div class="line">*/</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">delurlquery</span>(<span class="params">url, key</span>) </span>&#123;</div><div class="line">        key = escapereg(key);</div><div class="line">        <span class="keyword">var</span> reg = <span class="keyword">new</span> regexp(<span class="string">"((\\?)("</span>+ key +<span class="string">"=[^&amp;]*&amp;)+(?!"</span>+ key +</div><div class="line">  <span class="string">"=))|(((\\?|&amp;)"</span>+ key +<span class="string">"=[^&amp;]*)+$)|(&amp;"</span>+ key +<span class="string">"=[^&amp;]*)"</span>, <span class="string">"g"</span>);</div><div class="line">        <span class="keyword">return</span> url.replace(reg, <span class="string">"\x241"</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">// 应用实例</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"http://www.xxx.com/?pn=0"</span>;   <span class="comment">// 删除指定字符 pn=0</span></div><div class="line">delurlquery(str, <span class="string">"pn"</span>);</div></pre></td></tr></table></figure></p>
+<p>这段代码与前一段代码从实现上来说没有太大的区别，但是从思路上来说却有着本质的区别：1、不再是就事论事，头疼医头，而是把一类问题抽象理论化，一招破万招；2、有封装的概念，不再是每次从零开始，而是站在半山腰开始爬。</p>
+<p>现在可以多观察语言的组织结构，语言设计；看看原型链，链式语法编程，泛型，接口编程，dom遥控器等等；仔细阅读成熟的web前端开发框架的设计文档，看他们为什么要这样设计。</p>
+<h2 id="自成体系，化茧成蝶"><a href="#自成体系，化茧成蝶" class="headerlink" title="自成体系，化茧成蝶"></a>自成体系，化茧成蝶</h2><p>知道为什么这样设计，也知道什么样的设计最好。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 库文件 /util/string/escapereg.js</span></div><div class="line"><span class="comment">/**</span></div><div class="line">* 在拼接正则表达式字符串时，消除原字符串中特殊字符对正则表达式的干扰</div><div class="line">* @author: fun90</div><div class="line">* @version: 2012/12/16</div><div class="line">* @param               &#123;string&#125;        str     被正则表达式字符串保护编码的字符串</div><div class="line">* @return              &#123;string&#125;                被保护处理过后的字符串</div><div class="line">*/</div><div class="line">util.string.escapereg = <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> str.replace(<span class="keyword">new</span> regexp(<span class="string">"([.*+?^=!:\x24&#123;&#125;()|[\\]\/\\\\])"</span>, <span class="string">"g"</span>), <span class="string">"\\\x241"</span>);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">// 库文件 /util/url/delquery.js</span></div><div class="line"><span class="comment">/// include util.string.escapereg;</span></div><div class="line"><span class="comment">/**</span></div><div class="line">* 删除url字符串中指定的 query</div><div class="line">* @author:meizz</div><div class="line">* @version:2010/12/16</div><div class="line">* @param               &#123;string&#125;        url     url字符串</div><div class="line">* @param               &#123;string&#125;        key     被删除的query名</div><div class="line">* @return              &#123;string&#125;                被删除指定 query 后的url字符串</div><div class="line">*/</div><div class="line">util.url.delquery = <span class="function"><span class="keyword">function</span> (<span class="params">url, key</span>) </span>&#123;</div><div class="line">        key = util.string.escapereg(key);</div><div class="line">        <span class="keyword">var</span> reg = <span class="keyword">new</span> regexp(<span class="string">"((\\?)("</span>+ key +<span class="string">"=[^&amp;]*&amp;)+(?!"</span>+ key +</div><div class="line">  <span class="string">"=))|(((\\?|&amp;)"</span>+ key +<span class="string">"=[^&amp;]*)+$)|(&amp;"</span>+ key +<span class="string">"=[^&amp;]*)"</span>, <span class="string">"g"</span>);</div><div class="line">        <span class="keyword">return</span> url.replace(reg, <span class="string">"\x241"</span>)</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">// 应用实例</span></div><div class="line"><span class="comment">/// include util.url.delquery;</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"http://www.xxx.com/?pn=0"</span>;   <span class="comment">// 删除指定字符 pn=0</span></div><div class="line">util.url.delquery(str, <span class="string">"pn"</span>);</div></pre></td></tr></table></figure>
+<p>经过不懈努力，经历思索磨砺，积累发散，成就辉煌。</p>
+</section>
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Web" >
+    <span class="tag-code">Web</span>
+  </a>
+
+  <a href="/tags#Java" >
+    <span class="tag-code">Java</span>
+  </a>
+
+      </div>
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+      <div id="comments"></div>
+    
+  </article>
+</main>
+
+<script>
+  (function () {
+    var url = 'http://fun90.github.io/2014/01/15/programming-genius/';
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png') 
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      var imageW = $(this).width()
+      var imageH = $(this).height()
+      
+      var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+      zoom = zoom < 1 ? 1 : zoom
+      zoom = zoom > 2 ? 2 : zoom
+      var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+      $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+      $('.image-view-wrap').addClass('wrap-active')
+      $('.image-view-wrap img').css({
+        'width': `${imageW}`,
+        'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+      })
+      $('html').css('overflow', 'hidden')
+
+      $('.image-view-wrap').on('click', function() {
+        $(this).remove()
+        $('html').attr('style', '')
+      })
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "fun90";
+    if (gitmentConfig != "undefined") {
+      var gitment = new Gitment({
+        id: "编程高手的进阶之路",
+        owner: "fun90",
+        repo: "fun90.github.io",
+        oauth: {
+          client_id: "3a5391174396dbac6d14",
+          client_secret: "f9d2cf3b9daa6ae81e27ed9bc4ae36e1fb3c10f7"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
