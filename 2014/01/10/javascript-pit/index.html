@@ -1,111 +1,146 @@
 <!DOCTYPE html>
 <html>
+  <!-- Html Head Tag-->
   <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  <meta name="description" content="fun90&#39;s blog">
-  <meta name="keyword" content="java, 软件, mac">
-  <title>
-    
-      那些年，踩过的JavaScript之坑 | Fun90
-    
-  </title>
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
-  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/plugins/gitment.css">
-  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
-  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <script src="/js/qrious.js"></script>
-<script src="/js/gitment.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keyword" content="Java, Mac, 软件, 效率">
+  <meta name="author" content="Fun90">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="那些年，踩过的JavaScript之坑"/>
+  <meta property="og:description" content="记录学习、开发、软件分享的地方，Java, Mac, 软件, 效率" />
+  <meta property="og:site_name" content="Fun90"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://fun90.github.ioundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Fun90" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <!-- Site Title -->
+  <title>Fun90</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+
 </head>
+
   <body>
-    <header class="header fixed-header">
-  <div class="header-container">
-    <a class="home-link" href="/">
-      <div class="logo"></div>
-      <span>Fun90</span>
-    </a>
-    <ul class="right-list">
-      
-        <li class="list-item">
-          
-            <a href="/" class="item-link">首页</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/tags/" class="item-link">标签</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/archives/" class="item-link">归档</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/about/" class="item-link">关于</a>
-          
-        </li>
-      
-    </ul>
-    <div class="menu">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </div>
-    <div class="menu-mask">
-      <ul class="menu-list">
-        
-          <li class="menu-item">
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">那些年，踩过的JavaScript之坑</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
             
-              <a href="/" class="menu-link">首页</a>
+              <li>
+                <a href="/">
+                  
+                  首页
+                  
+                </a>
+              </li>
             
-          </li>
-        
-          <li class="menu-item">
+              <li>
+                <a href="/archives">
+                  
+                  归档
+                  
+                </a>
+              </li>
             
-              <a href="/tags/" class="menu-link">标签</a>
+              <li>
+                <a href="/tags">
+                  
+                  标签
+                  
+                </a>
+              </li>
             
-          </li>
-        
-          <li class="menu-item">
+              <li>
+                <a href="/categories">
+                  
+                  分类
+                  
+                </a>
+              </li>
             
-              <a href="/archives/" class="menu-link">归档</a>
+              <li>
+                <a href="https://github.com/fun90">
+                  
+                  Github
+                  
+                </a>
+              </li>
             
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/about/" class="menu-link">关于</a>
-            
-          </li>
-        
-      </ul>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
-    <div id="article-banner">
-  <h2>那些年，踩过的JavaScript之坑</h2>
-  <p class="post-date">2014-01-10</p>
-  <div class="arrow-down">
-    <a href="javascript:;"></a>
-  </div>
-</div>
-<main class="app-body">
-  <article class="post-article">
-    <section class="markdown-content"><p>你编，或者不编程，项目就在那里，还未完成。你调，或者不调试，BUG就在那里，早晚得改。你踩，或者不踩，坑都在那里，等下一个受害者。</p>
+
+
+<aside class="post-widget">
+    <nav class="post-toc-wrap" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量作用域"><span class="post-toc-number">1.</span> <span class="post-toc-text">变量作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#未使用var关键字定义的变量都是全局变量"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">未使用var关键字定义的变量都是全局变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#没有块作用域只有函数作用域"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">没有块作用域，只有函数作用域</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量的优先级"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">变量的优先级</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#this的指向"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">this的指向</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#闭包"><span class="post-toc-number">2.</span> <span class="post-toc-text">闭包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#行尾的分号"><span class="post-toc-number">3.</span> <span class="post-toc-text">行尾的分号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作符"><span class="post-toc-number">4.</span> <span class="post-toc-text">操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双等号"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">双等号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加减号"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">加减号</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数字类型"><span class="post-toc-number">5.</span> <span class="post-toc-text">数字类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浮点数运算"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">浮点数运算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#nan"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">NaN</span></a></li></ol></li></ol>
+    </nav>
+</aside>
+
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Fun90</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2014-01-10</span>
+            <span class="time">10:39:36</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/Web/">#Web</a> <a class="tag" href="/tags/JavaScript/">#JavaScript</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>你编，或者不编程，项目就在那里，还未完成。你调，或者不调试，BUG就在那里，早晚得改。你踩，或者不踩，坑都在那里，等下一个受害者。</p>
 <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><h3 id="未使用var关键字定义的变量都是全局变量"><a href="#未使用var关键字定义的变量都是全局变量" class="headerlink" title="未使用var关键字定义的变量都是全局变量"></a>未使用var关键字定义的变量都是全局变量</h3><p>在JavaScript中定义变量时漏掉var并不会报错。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    value = <span class="number">100</span>; <span class="comment">// value前没有var关键字，则声明了全局变量value并赋了值</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(value); <span class="comment">// 输出 100</span></div></pre></td></tr></table></figure>
 <a id="more"></a> 
-<h3 id="没有块作用域，只有函数作用域"><a href="#没有块作用域，只有函数作用域" class="headerlink" title="没有块作用域，只有函数作用域"></a>没有块作用域，只有函数作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">        <span class="keyword">var</span> value = <span class="string">"hello world"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(i); <span class="comment">// 输出 10</span></div><div class="line">    <span class="built_in">console</span>.log(value); <span class="comment">// 输出 hello world</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(value); <span class="comment">// ReferenceError: value is not defined</span></div></pre></td></tr></table></figure>
+<h3 id="没有块作用域只有函数作用域"><a href="#没有块作用域，只有函数作用域" class="headerlink" title="没有块作用域，只有函数作用域"></a>没有块作用域，只有函数作用域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">        <span class="keyword">var</span> value = <span class="string">"hello world"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(i); <span class="comment">// 输出 10</span></div><div class="line">    <span class="built_in">console</span>.log(value); <span class="comment">// 输出 hello world</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(value); <span class="comment">// ReferenceError: value is not defined</span></div></pre></td></tr></table></figure>
 <p>上面的代码中可以看出，for循环外依然能访问变量i和value，但函数foo外面则无法访问。</p>
 <p>如何优雅地绕过此坑：</p>
 <ol>
@@ -148,169 +183,45 @@
 <p>惊天BUG？</p>
 <p>JavaScript只有一种数字类型Number，没有Integer和Float，Number是IEEE标准中双精度浮点运算(64位)类型。 浮点数的精度问题不是JavaScript特有的，因为有些小数以二进制表示位数是无穷的，这就意味着JavaScript中浮点数运算会有无法避免的精度丢失。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span>); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span>); <span class="comment">// 0.30000000000000004，精度丢失</span></div><div class="line"><span class="built_in">console</span>.log(<span class="number">0.0</span> === <span class="number">0</span>); <span class="comment">// true，integer和float没有区别</span></div></pre></td></tr></table></figure></p>
 <p>解决：<br>在判断浮点运算结果前对计算结果进行精度缩小，因为在精度缩小的过程总会自动四舍五入:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = (<span class="number">0.1</span> + <span class="number">0.2</span>).toFixed(<span class="number">1</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> result, result); <span class="comment">// string 0.3，注意toFixed后的类型为string</span></div></pre></td></tr></table></figure></p>
-<h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><p>NaN的类型是Number，NaN和任何东西比较都是false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">NaN</span>); <span class="comment">// number</span></div><div class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> === <span class="literal">NaN</span>); <span class="comment">// fasle</span></div></pre></td></tr></table></figure></p>
+<h3 id="nan"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><p>NaN的类型是Number，NaN和任何东西比较都是false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">NaN</span>); <span class="comment">// number</span></div><div class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> === <span class="literal">NaN</span>); <span class="comment">// fasle</span></div></pre></td></tr></table></figure></p>
 <p>还有很多坑没记上来，还有很多坑未踩过去</p>
 <p>END！！！</p>
-</section>
-    
-      <div class="tags">
-        <span>Tags:</span>
-        
-  <a href="/tags#Web" >
-    <span class="tag-code">Web</span>
-  </a>
 
-  <a href="/tags#JavaScript" >
-    <span class="tag-code">JavaScript</span>
-  </a>
-
+        </div>
       </div>
-    
-    <div class="money-like">
-      <div class="reward-btn">
-        赏
-        <span class="money-code">
-          <span class="alipay-code">
-            <div class="code-image"></div>
-            <b>使用支付宝打赏</b>
-          </span>
-          <span class="wechat-code">
-            <div class="code-image"></div>
-            <b>使用微信打赏</b>
-          </span>
-        </span>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
       </div>
-      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
     </div>
-    <div class="qrcode">
-      <canvas id="share-qrcode"></canvas>
-      <p class="notice">扫描二维码，分享此文章</p>
-    </div>
-    
-      <div id="comments"></div>
-    
-  </article>
-</main>
-
-<script>
-  (function () {
-    var url = 'http://fun90.github.io/2014/01/10/javascript-pit/';
-    $('#article-banner').geopattern(url)
-    $('.header').removeClass('fixed-header')
-
-     // error image
-    $(".markdown-content img").on('error', function() {
-      $(this).attr('src', 'http://file.muyutech.com/error-img.png') 
-    })
-
-    // zoom image
-    $(".markdown-content img").on('click', function() {
-      var src = $(this).attr('src')
-      var imageW = $(this).width()
-      var imageH = $(this).height()
-      
-      var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
-      zoom = zoom < 1 ? 1 : zoom
-      zoom = zoom > 2 ? 2 : zoom
-      var transY = (($(window).height() - imageH) / 2).toFixed(2)
-
-      $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
-      $('.image-view-wrap').addClass('wrap-active')
-      $('.image-view-wrap img').css({
-        'width': `${imageW}`,
-        'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
-      })
-      $('html').css('overflow', 'hidden')
-
-      $('.image-view-wrap').on('click', function() {
-        $(this).remove()
-        $('html').attr('style', '')
-      })
-    })
-
-    // qrcode
-    var qr = new QRious({
-      element: document.getElementById('share-qrcode'),
-      value: document.location.href
-    });
-
-    // gitment
-    var gitmentConfig = "fun90";
-    if (gitmentConfig != "undefined") {
-      var gitment = new Gitment({
-        id: "那些年，踩过的JavaScript之坑",
-        owner: "fun90",
-        repo: "fun90.github.io",
-        oauth: {
-          client_id: "3a5391174396dbac6d14",
-          client_secret: "f9d2cf3b9daa6ae81e27ed9bc4ae36e1fb3c10f7"
-        },
-        theme: {
-          render(state, instance) {
-            const container = document.createElement('div')
-            container.lang = "en-US"
-            container.className = 'gitment-container gitment-root-container'
-            container.appendChild(instance.renderHeader(state, instance))
-            container.appendChild(instance.renderEditor(state, instance))
-            container.appendChild(instance.renderComments(state, instance))
-            container.appendChild(instance.renderFooter(state, instance))
-            return container;
-          }
-        }
-      })
-      gitment.render(document.getElementById('comments'))
-    }
-  })();
-</script>
-
-    <div class="scroll-top">
-  <span class="arrow-icon"></span>
-</div>
-    <footer class="app-footer">
-  <p class="copyright">
-    &copy; 2017 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
-    <br>
-    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
-  </p>
+  </div>
 </footer>
 
-<script>
-  function async(u, c) {
-    var d = document, t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-    s.parentNode.insertBefore(o, s);
-  }
-</script>
-<script>
-  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-    FastClick.attach(document.body);
-  })
-</script>
 
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
 <script>
-  var hasLine = 'true';
-  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
-    $('figure pre').each(function(i, block) {
-      var figure = $(this).parents('figure');
-      if (hasLine == 'false') {
-        figure.find('.gutter').hide();
-      }
-      var lang = figure.attr('class').split(' ')[1] || 'code';
-      var codeHtml = $(this).html();
-      var codeTag = document.createElement('code');
-      codeTag.className = lang;
-      codeTag.innerHTML = codeHtml;
-      $(this).attr('class', '').empty().html(codeTag);
-      figure.attr('data-lang', lang.toUpperCase());
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
       hljs.highlightBlock(block);
     });
-  })
+  });
 </script>
-<!-- Baidu Tongji -->
 
-<script src="/js/script.js"></script>
   </body>
 </html>
+

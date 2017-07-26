@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keyword" content="Java, Mac, 软件, 效率">
+  <meta name="author" content="Fun90">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="MySQL数字类型区别与选择"/>
+  <meta property="og:description" content="记录学习、开发、软件分享的地方，Java, Mac, 软件, 效率" />
+  <meta property="og:site_name" content="Fun90"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://fun90.github.ioundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Fun90" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <!-- Site Title -->
+  <title>Fun90</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">MySQL数字类型区别与选择</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  首页
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  归档
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags">
+                  
+                  标签
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories">
+                  
+                  分类
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/fun90">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<aside class="post-widget">
+    <nav class="post-toc-wrap" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求"><span class="post-toc-number">1.</span> <span class="post-toc-text">需求</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#延伸"><span class="post-toc-number">3.</span> <span class="post-toc-text">延伸</span></a></li></ol>
+    </nav>
+</aside>
+
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Fun90</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2014-02-15</span>
+            <span class="time">10:39:36</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/tech/">技术</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/">#undefined</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p><img src="http://7xnocv.com1.z0.glb.clouddn.com/java-regex-01.jpg" alt=""></p>
+<p>在开发中遇到需要替换JSON字符串某个key对应的双引号字符串，最后选择使用正则表达式来解决，接下来看看如何解决？</p>
+<a id="more"></a>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>有JSON字符串：<code>{&quot;code&quot;:&quot;kokf&quot;,&quot;params&quot;:&quot;{\&quot;branchCode\&quot;:\&quot;yNeWWnKb\&quot;,\&quot;vendorCode\&quot;:\&quot;zvuXEixA\&quot;}&quot;,&quot;timestamp&quot;:&quot;1499092515370&quot;}</code>，需要匹配到params对应的值(包括引号)，即：<strong>“{\”branchCode\”:\”yNeWWsMnKb\”,\”vendorCode\”:\”zvuXEiqtxA\”}”</strong></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>Java代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Pattern paramsRegex = Pattern.compile(<span class="string">"(\"params\"\\s*:\\s*)((?&lt;!\\\\)\".*?(?&lt;!\\\\)\")"</span>);</div><div class="line">String sourceParams = matcher.group(<span class="number">2</span>); <span class="comment">// 匹配到params对应的参数内容</span></div></pre></td></tr></table></figure>
+<p>注意：在Java正则表达式中的反斜杠标识表示为\\，而在字符串中\必须使用\\来表示，所以最后正则表达式的字符串为”\\\\”</p>
+<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><table>
+<thead>
+<tr>
+<th>断言类型</th>
+<th>表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>零宽度负回顾后发断言</td>
+<td>(?&lt;!exp)</td>
+<td>匹配前面不是exp的位置</td>
+</tr>
+<tr>
+<td>零宽度负预测先行断言</td>
+<td>(?!exp)</td>
+<td>匹配后面跟的不是exp的位置</td>
+</tr>
+<tr>
+<td>零宽度正预测先行断言</td>
+<td>(?=exp)</td>
+<td>匹配exp前面的位置</td>
+</tr>
+<tr>
+<td>零宽度正回顾后发断言</td>
+<td>(?&lt;=exp)</td>
+<td>匹配exp后面的位置</td>
+</tr>
+</tbody>
+</table>
+<p>这里使用的是零宽度负回顾后发断言，<code>(?&lt;!\\)&quot;</code>匹配双引号『”』但是双引号『”』前面<strong>不是</strong>\</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
