@@ -605,6 +605,12 @@ h6 {
 .post-item-wrapper .tags {
   float: left;
 }
+.post-item-wrapper .date-and-category img,
+.post-item-wrapper .excerpt img,
+.post-item-wrapper .tags img {
+  display: block;
+  margin: 0 auto;
+}
 .post-item-wrapper .date-and-category,
 .post-item-wrapper .tags {
   width: 14%;
