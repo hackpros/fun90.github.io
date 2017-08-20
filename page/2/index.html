@@ -253,6 +253,41 @@
 
       
         <div class="post-item-wrapper">
+  <a href="/2014/01/10/javascript-pit/" class="post-title">
+      那些年，踩过的JavaScript之坑
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2014-01-10</div>
+      <div class="categories">
+        
+          Uncategorized
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo">
+        
+        <p>你编，或者不编程，项目就在那里，还未完成。你调，或者不调试，BUG就在那里，早晚得改。你踩，或者不踩，坑都在那里，等下一个受害者。</p>
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><h3 id="未使用var关键字定义的变量都是全局变量"><a href="#未使用var关键字定义的变量都是全局变量" class="headerlink" title="未使用var关键字定义的变量都是全局变量"></a>未使用var关键字定义的变量都是全局变量</h3><p>在JavaScript中定义变量时漏掉var并不会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    value = <span class="number">100</span>; <span class="comment">// value前没有var关键字，则声明了全局变量value并赋了值</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(value); <span class="comment">// 输出 100</span></div></pre></td></tr></table></figure>
+    </div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        
+
+<a class="tag" href="/tags/Web/">Web</a> <a class="tag" href="/tags/JavaScript/">JavaScript</a>
+
+
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
   <a href="/2014/01/10/github-blog/" class="post-title">
       Github搭建独立博客
   </a>
@@ -284,41 +319,6 @@
         
 
 <a class="tag" href="/tags/Github/">Github</a> <a class="tag" href="/tags/Hexo/">Hexo</a>
-
-
-      
-    </div>
-  </div>
-</div>
-
-      
-        <div class="post-item-wrapper">
-  <a href="/2014/01/10/javascript-pit/" class="post-title">
-      那些年，踩过的JavaScript之坑
-  </a>
-  <div class="post-excerpt">
-    <!-- Post Date and Categories -->
-    <div class="date-and-category">
-      <div class="date">2014-01-10</div>
-      <div class="categories">
-        
-          Uncategorized
-        
-      </div>
-    </div>
-    <!-- Post Excerpt -->
-    <div class="excerpt typo">
-        
-        <p>你编，或者不编程，项目就在那里，还未完成。你调，或者不调试，BUG就在那里，早晚得改。你踩，或者不踩，坑都在那里，等下一个受害者。</p>
-<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><h3 id="未使用var关键字定义的变量都是全局变量"><a href="#未使用var关键字定义的变量都是全局变量" class="headerlink" title="未使用var关键字定义的变量都是全局变量"></a>未使用var关键字定义的变量都是全局变量</h3><p>在JavaScript中定义变量时漏掉var并不会报错。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    value = <span class="number">100</span>; <span class="comment">// value前没有var关键字，则声明了全局变量value并赋了值</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(value); <span class="comment">// 输出 100</span></div></pre></td></tr></table></figure>
-    </div>
-    <!-- Post Tags -->
-    <div class="tags">
-      
-        
-
-<a class="tag" href="/tags/Web/">Web</a> <a class="tag" href="/tags/JavaScript/">JavaScript</a>
 
 
       
