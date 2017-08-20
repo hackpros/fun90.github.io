@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keyword" content="Java, Mac, 软件, 效率">
+  <meta name="author" content="Fun90">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Git-在新需求还未开发完时突然接到紧急修复任务怎么办"/>
+  <meta property="og:description" content="记录学习、开发、软件分享的地方，Java, Mac, 软件, 效率" />
+  <meta property="og:site_name" content="Fun90"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://fun90.github.ioundefined"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Fun90" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <!-- Site Title -->
+  <title>Fun90</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(http://7xnocv.com1.z0.glb.clouddn.com/20170820231931_oPjVXR_uyTj5fx62rjA8IfUK2xI.jpeg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Git-在新需求还未开发完时突然接到紧急修复任务怎么办</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  首页
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  归档
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags">
+                  
+                  标签
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories">
+                  
+                  分类
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/fun90">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<aside class="post-widget">
+    <nav class="post-toc-wrap" id="post-toc">
+        <h4>TOC</h4>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关键字"><span class="post-toc-number">1.</span> <span class="post-toc-text">关键字</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#何谓储藏"><span class="post-toc-number">2.</span> <span class="post-toc-text">何谓储藏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在新需求还未开发完时突然接到紧急修复任务"><span class="post-toc-number">3.</span> <span class="post-toc-text">在新需求还未开发完时突然接到紧急修复任务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注意事项"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">注意事项</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#记住"><span class="post-toc-number">4.</span> <span class="post-toc-text">记住</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分支"><span class="post-toc-number">5.</span> <span class="post-toc-text">分支</span></a></li></ol>
+    </nav>
+</aside>
+
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Fun90</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2017-08-16</span>
+            <span class="time">23:21:59</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/tech/">技术</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/Git/">#Git</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>stash 储藏，保存当前的工作进度<br>pull 从服务器更新代码<br>push 将本地封存的修改推送到服务器<br>commit 提交修改到本地git（注意与SVN不一样）<br><a id="more"></a></p>
+<h2 id="何谓储藏"><a href="#何谓储藏" class="headerlink" title="何谓储藏"></a>何谓储藏</h2><p>具体请看这篇文章<a href="https://git-scm.com/book/zh/v1/Git-工具-储藏（Stashing）" target="_blank" rel="external">《Git 工具 - 储藏（Stashing）》</a></p>
+<p>不理解的话按我们开发过程中遇到的场景来讲一下</p>
+<h2 id="在新需求还未开发完时突然接到紧急修复任务"><a href="#在新需求还未开发完时突然接到紧急修复任务" class="headerlink" title="在新需求还未开发完时突然接到紧急修复任务"></a>在新需求还未开发完时突然接到紧急修复任务</h2><p>我们在开发新需求（未开发完）时，突然有紧急bug要修复。此时，我们面临的问题有3个。</p>
+<ol>
+<li>如何存放未完成的新需求代码？</li>
+<li>如何回到bug代码现场？</li>
+<li>如何在修复完bug后接着开发之前未完成的新需求？</li>
+</ol>
+<p>幸运的是Git解决这些问题快速且简单。大致只需3步：</p>
+<ol>
+<li><p>stash 储藏当前工作进度，取名为tmp（名字任意取，便于在恢复时区分）<br>这时新需求的未完成代码已经储藏在了本地Git，并且工程目录下的代码恢复到了你上一次commit的状态，从现在开始修改代码不会影响新需求的代码。</p>
+<p><img src="http://7xnocv.com1.z0.glb.clouddn.com/git-stash-01.gif" alt=""></p>
+</li>
+<li><p>修复bug并将代码push到服务器，在分支上跟我们平时开发提交代码一样，修复完bug测试通过后将代码push到服务。</p>
+</li>
+<li><p>恢复之前储藏的工作进度，继续开发未完成的新需求</p>
+<p><img src="http://7xnocv.com1.z0.glb.clouddn.com/git-stash-02.gif" alt=""></p>
+</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>Apply Stash之后，该Stash依旧留在本地列表中。若不再需要该Stash则需手动drop。你也可以勾选上 “Pop stash” 选项，勾选上后再Apply Stash则会在恢复完之后将这个Stash给Drop掉。这样可以避免本地Stash过多。<strong>drop时一定别删错了，否则将丢失修改的代码</strong></p>
+<p><img src="http://7xnocv.com1.z0.glb.clouddn.com/20170820230315_kBevmw_Screenshot.jpeg" alt=""></p>
+<p>当你在开发新需求和修复紧急bug修改了同一个文件，可能在恢复工作进度时会遇到冲突需要合并。<br><img src="http://7xnocv.com1.z0.glb.clouddn.com/20170820230330_anjAIQ_Screenshot.jpeg" alt=""></p>
+<h2 id="记住"><a href="#记住" class="headerlink" title="记住"></a>记住</h2><ol>
+<li>除了第2步（修复bug并将代码push到服务器），其余步骤的操作均存于本地。 当你储藏工作进度的时候，所有这一切都只发生在你本地的 Git 版本库中 —— 没有与服务器发生交互。</li>
+<li>stash不要存得过多，否则会连自己都搞不清楚存的那是些什么。</li>
+<li>stash只是临时存放工作进度的一种快捷方法，如果新需求开发周期很长则需要新建分支。</li>
+</ol>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>看看分支是如何使用的：<a href="https://git-scm.com/book/zh/v1/Git-分支-何谓分支" target="_blank" rel="external">《Git 分支 - 何谓分支》</a>、<a href="https://git-scm.com/book/zh/v1/Git-分支-分支的新建与合并" target="_blank" rel="external">Git 分支 - 分支的新建与合并</a>、<a href="https://git-scm.com/book/zh/v1/Git-分支-利用分支进行开发的工作流程" target="_blank" rel="external">Git 分支 - 利用分支进行开发的工作流程</a></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
