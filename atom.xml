@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fun90.github.io/"/>
-  <updated>2017-08-20T15:20:21.000Z</updated>
+  <updated>2017-08-20T16:21:09.000Z</updated>
   <id>http://fun90.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://fun90.github.io/2017/08/16/git-stash/"/>
     <id>http://fun90.github.io/2017/08/16/git-stash/</id>
     <published>2017-08-16T15:04:15.000Z</published>
-    <updated>2017-08-20T15:20:21.000Z</updated>
+    <updated>2017-08-20T16:21:09.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>stash 储藏，保存当前的工作进度<br>pull 从服务器更新代码<br>push 将本地封存的修改推送到服务器<br>commit 提交修改到本地git（注意与SVN不一样）<br><a id="more"></a></p>
 <h2 id="何谓储藏"><a href="#何谓储藏" class="headerlink" title="何谓储藏"></a>何谓储藏</h2><p>具体请看这篇文章<a href="https://git-scm.com/book/zh/v1/Git-工具-储藏（Stashing）" target="_blank" rel="external">《Git 工具 - 储藏（Stashing）》</a></p>
@@ -33,12 +33,12 @@
 </ol>
 <p>幸运的是Git解决这些问题快速且简单。大致只需3步：</p>
 <ol>
-<li><p>stash 储藏当前工作进度，取名为tmp（名字任意取，便于在恢复时区分）<br>这时新需求的未完成代码已经储藏在了本地Git，并且工程目录下的代码恢复到了你上一次commit的状态，从现在开始修改代码不会影响新需求的代码。</p>
+<li><p>stash 储藏当前工作进度，取名为tmp（名字任意取，便于在恢复时区分）<br>这时新需求的未完成代码已经储藏在了本地Git，并且工程目录下的代码恢复到了你上一次commit的状态，从现在开始修改代码不会影响新需求的代码。（Safari看不到动图，用Chrome吧）</p>
 <p><img src="http://7xnocv.com1.z0.glb.clouddn.com/git-stash-01.gif" alt=""></p>
 </li>
 <li><p>修复bug并将代码push到服务器，在分支上跟我们平时开发提交代码一样，修复完bug测试通过后将代码push到服务。</p>
 </li>
-<li><p>恢复之前储藏的工作进度，继续开发未完成的新需求</p>
+<li><p>恢复之前储藏的工作进度，继续开发未完成的新需求（Safari看不到动图，用Chrome吧）</p>
 <p><img src="http://7xnocv.com1.z0.glb.clouddn.com/git-stash-02.gif" alt=""></p>
 </li>
 </ol>
